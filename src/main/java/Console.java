@@ -4,20 +4,40 @@ public class Console {
 
     // ******************************************************************************************** Welcome **********
 
-    public void welcomeMessage() {
+    public void welcomeMessageRegions() {
 
         System.out.println("\n");
-        System.out.println("Hello  Welcome to MARCH MADNESS    " + "\n");
-        System.out.println("Please select the Region by number" + "\n");
-        System.out.println("1. EAST");
-        System.out.println("2. WEST");
-        System.out.println("3. MIDWEST");
-        System.out.println("4. SOUTH" + "\n");
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("^   Hello  Welcome to MARCH MADNESS          ^");
+        System.out.println("^--------------------------------------------^");
+        System.out.println("^   Please select the Region by number       ^");
+        System.out.println("^                                            ^");
+        System.out.println("^   1. EAST                                  ^");
+        System.out.println("^   2. WEST                                  ^");
+        System.out.println("^   3. MIDWEST                               ^");
+        System.out.println("^   4. SOUTH                                 ^");
+        System.out.println("^                                            ^");
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println(" Enter your input :");
 //                char escCode = 0x1B;
 //                int row = 10; int column = 10;
 //                System.out.print(String.format("%c[%d;%df",escCode,row,column));
     }
+
+    public void welcomeMessageTeams() {
+
+        System.out.println("\n");
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println("^   Hello  Welcome to MARCH MADNESS          ^");
+        System.out.println("^--------------------------------------------^");
+        System.out.println("^   Please enter the name of the Team        ^");
+        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+        System.out.println(" Enter your input :");
+//                char escCode = 0x1B;
+//                int row = 10; int column = 10;
+//                System.out.print(String.format("%c[%d;%df",escCode,row,column));
+    }
+
 
 
     // ***************** Getting String input from User **********
@@ -34,12 +54,12 @@ public class Console {
 
 //        GUI gui = new GUI();
 
-        Console console1 = new Console();
+        Console region = new Console();
         Boolean invalid = false;
 
         do {
-            console1.welcomeMessage();
-            Integer response = console1.getUserInput();
+            region.welcomeMessageRegions();
+            Integer response = region.getUserInput();
 
 
             if (response == 1) {
@@ -103,7 +123,7 @@ public class Console {
                 invalid = true;
 
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                 }
                 catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
