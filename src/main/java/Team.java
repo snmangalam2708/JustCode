@@ -14,6 +14,8 @@ public class Team {
 
     }
 
+    public Team(){    }
+
     public Roster getTeamRoster() {
         return teamRoster;
     }
