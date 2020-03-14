@@ -43,5 +43,9 @@ public class TeamTest {
 
     @Test
     public void getSetSchedule() {
+        testTeam.setSchedule("schedule");
+        String expected = "schedule";
+        String actual = testTeam.getSchedule();
+        Assert.assertEquals(expected,actual);
     }
 }
