@@ -20,4 +20,45 @@ public class TestPlayer {
         LOGGER.info(player.playerDetails(player));
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void getSetterTest(){
+        Player player = new Player("Raheel Uppal");
+        player.setName("Raheel Uppal");
+        player.setAPG(8.9);
+        player.setHeight(6.3);
+        player.setPosition(Position.PG);
+        player.setWeight(230.5);
+        player.setPPG(33.6);
+        player.setRPG(12.2);
+        player.setYear(Year.FM);
+
+        String nameE = player.getName();
+        String nameA = "Raheel Uppal";
+        Assert.assertEquals(nameE,nameA);
+
+        Double ppgE = player.getPPG();
+        Double ppgA = 33.6;
+        Assert.assertEquals(ppgE,ppgA);
+
+        Double rpgE = player.getRPG();
+        Double rpgA = 12.2;
+        Assert.assertEquals(rpgE,rpgA);
+
+        Double apgE = player.getAPG();
+        Double apgA = 8.9;
+        Assert.assertEquals(apgE,apgA);
+
+        Double heightE = player.getHeight();
+        Double heightA = 6.3;
+        Assert.assertEquals(heightE,heightA);
+
+        Double weightE = player.getWeight();
+        Double weightA = 230.5;
+        Assert.assertEquals(weightE,weightA);
+
+        Position expected = player.getPosition();
+        Position actual = Position.PG;
+        Assert.assertEquals(expected,actual);
+    }
 }

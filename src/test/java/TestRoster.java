@@ -16,6 +16,7 @@ public class TestRoster {
         Player player3 = new Player("Sandeep Manglam");
         Position c = Position.SF;
         Roster roster = new Roster();
+        roster.setRoster(roster.getRoster());
         roster.addToRoster(player1,pg);
         roster.addToRoster(player2,sg);
         roster.addToRoster(player3,c);
@@ -47,6 +48,5 @@ public class TestRoster {
         LOGGER.info(roster.listRoster(roster));
 
     }
-
 
 }
