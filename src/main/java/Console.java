@@ -23,23 +23,7 @@ public class Console {
 //                int row = 10; int column = 10;
 //                System.out.print(String.format("%c[%d;%df",escCode,row,column));
     }
-
-    public void welcomeMessageTeams() {
-
-        System.out.println("\n");
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println("^   Hello  Welcome to MARCH MADNESS          ^");
-        System.out.println("^--------------------------------------------^");
-        System.out.println("^   Please enter the name of the Team        ^");
-        System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-        System.out.println(" Enter your input :");
-//                char escCode = 0x1B;
-//                int row = 10; int column = 10;
-//                System.out.print(String.format("%c[%d;%df",escCode,row,column));
-    }
-
-
-
+    
     // ***************** Getting String input from User **********
 
     public Integer getUserInput() {
