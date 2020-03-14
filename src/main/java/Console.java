@@ -1,3 +1,4 @@
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class Console {
@@ -27,8 +28,17 @@ public class Console {
     // ***************** Getting String input from User **********
 
     public Integer getUserInput() {
+
+        int userInput = 0;
         Scanner readInput = new Scanner(System.in);
-        int userInput = Integer.parseInt(readInput.nextLine());
+        try {
+            userInput = Integer.parseInt(readInput.nextLine());
+
+        } catch (NumberFormatException ex) {
+            System.out.println("Invalid entry. Please enter a number from the menu" + "\n");
+            userInput = Integer.parseInt(readInput.nextLine());
+            return userInput;
+        }
         return userInput;
     }
 
@@ -40,11 +50,11 @@ public class Console {
 
         Console region = new Console();
         Boolean invalid = false;
+        region.welcomeMessageRegions();
 
         do {
-            region.welcomeMessageRegions();
+            //region.welcomeMessageRegions();
             Integer response = region.getUserInput();
-
 
             if (response == 1) {
 
