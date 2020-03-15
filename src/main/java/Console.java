@@ -1,4 +1,4 @@
-import javax.sound.midi.Soundbank;
+
 import java.util.Scanner;
 
 public class Console {
@@ -24,7 +24,10 @@ public class Console {
 //                int row = 10; int column = 10;
 //                System.out.print(String.format("%c[%d;%df",escCode,row,column));
     }
-    
+
+
+
+
     // ***************** Getting String input from User **********
 
     public Integer getUserInput() {
@@ -53,7 +56,7 @@ public class Console {
         region.welcomeMessageRegions();
 
         do {
-            //region.welcomeMessageRegions();
+
             Integer response = region.getUserInput();
 
             if (response == 1) {
@@ -67,8 +70,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.east();
-
+                Region r = new Region("east");
+                r.getRegionBracket();
             }
 
             else if (response == 2) {
@@ -82,7 +85,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.west();
+                Region r = new Region("west");
+                r.getRegionBracket();
             }
 
             else if (response == 3) {
@@ -96,7 +100,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.midwest();
+                Region r = new Region("midwest");
+                r.getRegionBracket();
             }
 
             else if (response == 4) {
@@ -109,7 +114,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.south();
+                Region r = new Region("south");
+                r.getRegionBracket();
             }
 
             else {
