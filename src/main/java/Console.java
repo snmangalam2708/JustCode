@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Console {
@@ -23,12 +24,24 @@ public class Console {
 //                int row = 10; int column = 10;
 //                System.out.print(String.format("%c[%d;%df",escCode,row,column));
     }
-    
+
+
+
+
     // ***************** Getting String input from User **********
 
     public Integer getUserInput() {
+
+        int userInput = 0;
         Scanner readInput = new Scanner(System.in);
-        int userInput = Integer.parseInt(readInput.nextLine());
+        try {
+            userInput = Integer.parseInt(readInput.nextLine());
+
+        } catch (NumberFormatException ex) {
+            System.out.println("Invalid entry. Please enter a number from the menu" + "\n");
+            userInput = Integer.parseInt(readInput.nextLine());
+            return userInput;
+        }
         return userInput;
     }
 
@@ -40,11 +53,11 @@ public class Console {
 
         Console region = new Console();
         Boolean invalid = false;
+        region.welcomeMessageRegions();
 
         do {
-            region.welcomeMessageRegions();
-            Integer response = region.getUserInput();
 
+            Integer response = region.getUserInput();
 
             if (response == 1) {
 
@@ -57,8 +70,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.east();
-
+                Region r = new Region("east");
+                r.getRegionBracket();
             }
 
             else if (response == 2) {
@@ -72,7 +85,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.west();
+                Region r = new Region("west");
+                r.getRegionBracket();
             }
 
             else if (response == 3) {
@@ -86,7 +100,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.midwest();
+                Region r = new Region("midwest");
+                r.getRegionBracket();
             }
 
             else if (response == 4) {
@@ -99,7 +114,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                // Call region.south();
+                Region r = new Region("south");
+                r.getRegionBracket();
             }
 
             else {
