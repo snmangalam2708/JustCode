@@ -6,7 +6,9 @@ public class Region{
     private HashMap<Team, Integer> teamSeedMap;
 
     public Region(String selectedRegion){
-        this.regionBracket = new Bracket();
+        JDBC jdbc = new JDBC();
+        //method below will take jdbc queries - need to mapify the query results
+        this.teamSeedMap.put(new Team(), 1);
     }
 
     public Bracket getRegionBracket() {
