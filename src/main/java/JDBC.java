@@ -1,13 +1,13 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.HashMap;
 
 public class JDBC {
-    private final String url = "";
-    private final String user = "";
-    private final String password = "";
+    // change this to the remote server
+    private final String url = "jdbc:postgresql://localhost:5432/testjava";
+    private final String user = "java";
+    private final String password = "java";
 
-    //connect to postGres database
+    //connect to postgres database
 
     public Connection connect(){
         Connection conn = null;
@@ -21,5 +21,31 @@ public class JDBC {
         return conn;
     }
 
+    public String getTeamListFromRegion(String region) {
+        //String SQL = "SELECT school_name FROM" + region;
+        String SQL = "SELECT first_name FROM person WHERE id < 10";
+        String teamList = "";
+        try (Connection conn = connect();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(SQL)) {
+            while (rs.next()){
+            //teamList = rs.getString("school_name");
+            teamList += rs.getString("first_name") + "\n";
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return teamList;
+    }
+
+    // need to make this parse query results
+
+    public String[] parseToStringArray(String queryResults){
+        return null;
+    }
+    public HashMap<String, Integer> mapify(String queryResults){
+        return new HashMap<String, Integer>();
+    }
 
 }
