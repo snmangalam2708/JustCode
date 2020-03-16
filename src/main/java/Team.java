@@ -55,7 +55,7 @@ public class Team {
     public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
-    // get roster from API
+//    get roster from API
 //    records;
 //    projections;
 //    history;
