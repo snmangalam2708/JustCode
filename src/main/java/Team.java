@@ -1,11 +1,13 @@
 public class Team {
+    private String teamName;
     private Roster teamRoster;
     private String records;
     private String projections;
     private String history;
     private String schedule;
 
-    public Team(String records,String projections,String history,String schedule, Roster roster){
+    public Team(String teamName, String records,String projections,String history,String schedule, Roster roster){
+        this.teamName = teamName;
         this.teamRoster = new Roster();
         this.records = records;
         this.projections = projections;
@@ -15,6 +17,14 @@ public class Team {
     }
 
     public Team(){    }
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
 
     public Roster getTeamRoster() {
         return teamRoster;
