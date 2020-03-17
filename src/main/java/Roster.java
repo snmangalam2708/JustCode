@@ -28,18 +28,16 @@ public class Roster {
         return roster.size();
     }
 
-    public void listRoster() {
-        System.out.println(roster.toString());
+    public String listRoster(Roster roster) {
+        return roster.toString();
     }
 
     @Override
     public String toString() {
-        String result = null;
-        for (Map.Entry<Player, Position> e : roster.entrySet()) {
-            result = "Name: " + e.getKey().getName() +
-                    "\n Position: " + e.getValue();
+        StringBuilder result = new StringBuilder();
+        for (Map.Entry<Player, Position> entry : roster.entrySet()) {
+            result.append("\n").append(entry.getValue().toString()).append(" ").append(entry.getKey().getName());}
 
-        }
-        return result;
+        return result.toString();
     }
 }

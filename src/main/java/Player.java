@@ -25,7 +25,8 @@ private Position position;
         
     }
 
-    public Player() {
+    public Player(String name) {
+        this.name = name;
     }
 
     public String getName() {
