@@ -11,8 +11,8 @@ public class Region{
         this.teamSeedMap.put(new Team(), 1);
     }
 
-    public HashMap<Team, Integer> getRegionBracket() {
-        return teamSeedMap;
+    public Bracket getRegionBracket(){
+        return this.regionBracket;
     }
 
     public void setRegionBracket(Bracket regionBracket) {
