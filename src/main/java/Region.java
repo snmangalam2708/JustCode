@@ -1,15 +1,19 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class Region{
     private Bracket regionBracket;
     private HashMap<Integer, Team> seedTeamMap;
-    private HashMap<Integer,Team> picks;
+    private ArrayList<Integer> seedPicks;
+    private Team champ;
 
     public Region(String selectedRegion){
         JDBC jdbc = new JDBC();
         //method below will take jdbc query results - need to mapify the query results using selectedRegion
         this.seedTeamMap.put(1,new Team());
+        this.seedPicks = new ArrayList<Integer>();
+        this.champ = new Team();
     }
 
     public Bracket getRegionBracket(){
@@ -28,10 +32,21 @@ public class Region{
         this.seedTeamMap = teamSeedMap;
     }
 
-    public HashMap<Integer, Team> getPicks(){return this.picks;};
+    public ArrayList<Integer> getPicks(){return this.seedPicks;};
 
-    public void setPicks(HashMap<Integer, Team> picks){this.picks = picks;};
+    public void setPicks(ArrayList<Integer> picks){this.seedPicks = picks;};
 
+    public void clearPicks(){
+        this.getPicks().clear();
+    }
+
+    public Team getChamp() {
+        return champ;
+    }
+
+    public void setChamp(Team champ) {
+        this.champ = champ;
+    }
 
     //    methods planned for future use below
 //    get list of teams and seeds from API
