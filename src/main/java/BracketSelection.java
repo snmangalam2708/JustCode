@@ -58,9 +58,9 @@ public class BracketSelection {
     public void pickFourthRoundWinner(Region region){}
     public void pickRegionWinner(Region region){
         pickFirstRoundWinner(east);
-        pickSecondRoundWinner(east);
-        pickThirdRoundWinner(east);
-        pickFourthRoundWinner(east);}
+        pickSecondRoundWinner(west);
+        pickThirdRoundWinner(south);
+        pickFourthRoundWinner(midwest);}
 
     public static void main(String[] args) {
         // selectedRegion will be either pulled from user input or we can hardcode it
