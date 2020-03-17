@@ -1,12 +1,14 @@
 public class Team {
+    private String teamName;
     private Roster teamRoster;
     private String records;
     private String projections;
     private String history;
     private String schedule;
-    private String teamName;
 
-    public Team(String records, String projections, String history, String schedule, Roster roster){
+
+    public Team(String teamName, String records,String projections,String history,String schedule, Roster roster){
+        this.teamName = teamName;
         this.teamRoster = new Roster();
         this.records = records;
         this.projections = projections;
@@ -57,6 +59,7 @@ public class Team {
         this.schedule = schedule;
     }
 
+
     public String getTeamName() {
         return teamName;
     }
@@ -64,7 +67,8 @@ public class Team {
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
-    // get roster from API
+
+//    get roster from API
 //    records;
 //    projections;
 //    history;
