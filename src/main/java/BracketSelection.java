@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -30,8 +31,9 @@ public class BracketSelection {
         (" Enter your input :");
     }
 
-    public HashMap<Integer, Team> pickFirstRoundWinner(Region region) {
-        HashMap<Integer, Team> winnerMap = new HashMap<>();
+    public ArrayList<Integer> pickFirstRoundWinner(Region region) {
+        region.clearPicks();
+        ArrayList<Integer> winnerList = new ArrayList<>();
         Team winner = new Team();
         int seedCounter = 16;
         //below creates round 1 matchups
@@ -41,21 +43,70 @@ public class BracketSelection {
             Integer userInput = testConsole.getInteger(pickBracketsMessage());
             if (userInput == 1) {
                 winner = team1;
-                winnerMap.put(i,team1);
+                winnerList.add(i);
             } else {
                 winner = team2;
-                winnerMap.put(i,team2);
+                winnerList.add(i);
             }
             seedCounter--;
         }
-        region.setPicks(winnerMap);
-        return winnerMap;
+        region.setPicks(winnerList);
+        return winnerList;
     }
     public void pickSecondRoundWinner(Region region){
-        if (region.getPicks().containsKey(1)){}}
+        ArrayList<Integer> winnerList = new ArrayList<>();
+        Team winner = new Team();
+        int seedCounter = 8;
+        for (int i = 1; i<=4;i++){
+            this.team1 = region.getSeedTeamMap().get(region.getPicks().get(i));
+            this.team2 = region.getSeedTeamMap().get(region.getPicks().get(seedCounter));
+            Integer userInput = testConsole.getInteger(pickBracketsMessage());
+            if (userInput == 1) {
+                winner = team1;
+                winnerList.add(i);
+            } else {
+                winner = team2;
+                winnerList.add(i);
+            }
+            seedCounter--;
+        }
+        region.setPicks(winnerList);
+    }
 
-    public void pickThirdRoundWinner(Region region){}
-    public void pickFourthRoundWinner(Region region){}
+    public void pickThirdRoundWinner(Region region){
+    ArrayList<Integer> winnerList = new ArrayList<>();
+    Team winner = new Team();
+    int seedCounter = 4;
+        for (int i = 1; i<=2;i++){
+        this.team1 = region.getSeedTeamMap().get(region.getPicks().get(i));
+        this.team2 = region.getSeedTeamMap().get(region.getPicks().get(seedCounter));
+        Integer userInput = testConsole.getInteger(pickBracketsMessage());
+        if (userInput == 1) {
+            winner = team1;
+            winnerList.add(i);
+        } else {
+            winner = team2;
+            winnerList.add(i);
+        }
+        seedCounter--;
+    }
+        region.setPicks(winnerList);
+}
+
+    public void pickFourthRoundWinner(Region region){
+        Team winner = new Team();
+        this.team1 = region.getSeedTeamMap().get(region.getPicks().get(1));
+        this.team2 = region.getSeedTeamMap().get(region.getPicks().get(2));
+        Integer userInput = testConsole.getInteger(pickBracketsMessage());
+        if (userInput == 1) {
+            winner = team1;
+            region.setChamp(team1);
+        } else {
+                winner = team2;
+                region.setChamp(team2);
+            }
+    }
+
     public void pickRegionWinner(Region region){
         pickFirstRoundWinner(east);
         pickSecondRoundWinner(west);
@@ -64,9 +115,6 @@ public class BracketSelection {
 
     public static void main(String[] args) {
         // selectedRegion will be either pulled from user input or we can hardcode it
-
-        Team team1 = new Team();
-        Team team2 = new Team();
 
         BracketSelection bs = new BracketSelection();
         bs.pickRegionWinner(bs.east);
