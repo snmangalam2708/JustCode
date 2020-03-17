@@ -6,6 +6,7 @@ public class Team {
     private String history;
     private String schedule;
 
+
     public Team(String teamName, String records,String projections,String history,String schedule, Roster roster){
         this.teamName = teamName;
         this.teamRoster = new Roster();
@@ -16,15 +17,7 @@ public class Team {
 
     }
 
-    public Team(){    }
-
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
+    public Team(){}
 
     public Roster getTeamRoster() {
         return teamRoster;
@@ -65,6 +58,16 @@ public class Team {
     public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
+
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
 //    get roster from API
 //    records;
 //    projections;

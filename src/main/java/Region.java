@@ -3,29 +3,35 @@ import java.util.HashMap;
 
 public class Region{
     private Bracket regionBracket;
-    private HashMap<Team, Integer> teamSeedMap;
+    private HashMap<Integer, Team> seedTeamMap;
+    private HashMap<Integer,Team> picks;
 
     public Region(String selectedRegion){
         JDBC jdbc = new JDBC();
-        //method below will take jdbc queries - need to mapify the query results
-        this.teamSeedMap.put(new Team(), 1);
+        //method below will take jdbc query results - need to mapify the query results using selectedRegion
+        this.seedTeamMap.put(1,new Team());
     }
 
-    public Bracket getRegionBracket() {
-        return regionBracket;
+    public Bracket getRegionBracket(){
+        return this.regionBracket;
     }
 
     public void setRegionBracket(Bracket regionBracket) {
         this.regionBracket = regionBracket;
     }
 
-    public HashMap<Team, Integer> getTeamSeedMap() {
-        return teamSeedMap;
+    public HashMap<Integer,Team> getSeedTeamMap() {
+        return seedTeamMap;
     }
 
-    public void setTeamSeedMap(HashMap<Team, Integer> teamSeedMap) {
-        this.teamSeedMap = teamSeedMap;
+    public void setSeedTeamMap(HashMap<Integer, Team> teamSeedMap) {
+        this.seedTeamMap = teamSeedMap;
     }
+
+    public HashMap<Integer, Team> getPicks(){return this.picks;};
+
+    public void setPicks(HashMap<Integer, Team> picks){this.picks = picks;};
+
 
     //    methods planned for future use below
 //    get list of teams and seeds from API
