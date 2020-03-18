@@ -7,8 +7,7 @@ public class JDBCTest {
     JDBC jdbc = new JDBC();
 
     @Test
-    public void connect() {
-    }
+    public void connect() {}
 
     @Test
     public void getTeamListFromRegion() {

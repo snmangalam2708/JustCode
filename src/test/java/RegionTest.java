@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class RegionTest {
     Region testRegion = new Region("East");
     Bracket testBracket = new Bracket();
-    HashMap<Team, Integer> testMap = new HashMap<>();
+    HashMap<Integer, Team> testMap = new HashMap<>();
 
     @Test
     public void getSetRegionBracket() {
@@ -20,9 +20,9 @@ public class RegionTest {
 
     @Test
     public void getSetTeamSeedMap() {
-        testRegion.setTeamSeedMap(testMap);
+        testRegion.setSeedTeamMap(testMap);
         HashMap expected = testMap;
-        HashMap actual = testRegion.getTeamSeedMap();
+        HashMap actual = testRegion.getSeedTeamMap();
         Assert.assertEquals(expected,actual);
     }
 }

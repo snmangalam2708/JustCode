@@ -23,6 +23,7 @@ public class JDBC {
 
     public String getTeamListFromRegion(String region) {
         //String SQL = "SELECT school_name FROM" + region;
+        //below runs on local database for testing, above is actual query once connected to remote db
         String SQL = "SELECT first_name FROM person WHERE id < 10";
         String teamList = "";
         try (Connection conn = connect();

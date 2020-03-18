@@ -6,7 +6,7 @@ public enum Year {
 
     private String year;
 
-    private Year(String year) {
+    Year(String year) {
         this.year = year;
     }
 }
