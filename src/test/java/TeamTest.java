@@ -48,4 +48,12 @@ public class TeamTest {
         String actual = testTeam.getSchedule();
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void getSetTeamName() {
+        testTeam.setTeamName("Latvia");
+        String expected = "Latvia";
+        String actual = testTeam.getTeamName();
+        Assert.assertEquals(expected, actual);
+    }
 }
