@@ -1,4 +1,5 @@
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Console {
@@ -30,18 +31,18 @@ public class Console {
 
     // ***************** Getting String input from User **********
 
-    public Integer getUserInput() {
+    public Object getUserInput() {
 
-        int userInput = 0;
+        Object userInput;
         Scanner readInput = new Scanner(System.in);
-        try {
-            userInput = Integer.parseInt(readInput.nextLine());
+//        try {
+            userInput = readInput.nextLine();
 
-        } catch (NumberFormatException ex) {
-            System.out.println("Invalid entry. Please enter a number from the menu" + "\n");
-            userInput = Integer.parseInt(readInput.nextLine());
-            return userInput;
-        }
+//        } catch (NumberFormatException ex) {
+//            System.out.println("Invalid entry. Please enter a number from the menu" + "\n");
+//            userInput = Integer.parseInt(readInput.nextLine());
+//            return userInput;
+//        }
         return userInput;
     }
 
@@ -55,26 +56,42 @@ public class Console {
         Boolean invalid = false;
         region.welcomeMessageRegions();
 
+        HashMap<Integer, String> response = new HashMap<Integer, String>();
+        response.put(1, "EAST");
+        response.put(2, "WEST");
+        response.put(3, "MIDWEST");
+        response.put(4, "SOUTH");
+//        System.out.println(response.get(1));
+//        System.out.println(response.get(2));
+//        System.out.println(response.get(3));
+//        System.out.println(response.get(4));
+//        System.out.println(response.keySet().toArray()[1]);
+
+
+
         do {
 
-            Integer response = region.getUserInput();
+            Object r = region.getUserInput();
+//            System.out.println(r);
+//            System.out.println(response.get(2));
+//            System.out.println(response.keySet().toArray()[1]);
 
-            if (response == 1) {
+            if ((response.get(1).equalsIgnoreCase((String)r)) || r == response.keySet().toArray()[0])
+                {
+                    System.out.println("You selected EAST" + "\n\n");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
 
-                System.out.println("You selected EAST" + "\n\n");
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
+                    System.out.println("Redirecting.........");
+                    invalid = false;
+                    Region regionSelected = new Region("east");
+                    regionSelected.getRegionBracket();
                 }
 
-                System.out.println("Redirecting.........");
-                invalid = false;
-                Region r = new Region("east");
-                r.getRegionBracket();
-            }
-
-            else if (response == 2) {
+            else if ((response.get(2).equalsIgnoreCase((String)r)) || r == response.keySet().toArray()[1]) {
 
                 System.out.println("You selected WEST" + "\n\n");
                 try {
@@ -85,11 +102,11 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                Region r = new Region("west");
-                r.getRegionBracket();
+                Region regionSelected = new Region("west");
+                regionSelected.getRegionBracket();
             }
 
-            else if (response == 3) {
+            else if ((response.get(3).equalsIgnoreCase((String)r)) || r == response.keySet().toArray()[2]) {
 
                 System.out.println("You selected MIDWEST" + "\n\n");
                 try {
@@ -100,11 +117,11 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                Region r = new Region("midwest");
-                r.getRegionBracket();
+                Region regionSelected = new Region("midwest");
+                regionSelected.getRegionBracket();
             }
 
-            else if (response == 4) {
+            else if (((response.get(4).equalsIgnoreCase((String)r))) || r == response.keySet().toArray()[3]) {
                 System.out.println("You selected SOUTH" + "\n\n");
                 try {
                     Thread.sleep(1000);
@@ -114,8 +131,8 @@ public class Console {
 
                 System.out.println("Redirecting.........");
                 invalid = false;
-                Region r = new Region("south");
-                r.getRegionBracket();
+                Region regionSelected = new Region("south");
+                regionSelected.getRegionBracket();
             }
 
             else {
