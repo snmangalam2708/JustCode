@@ -51,8 +51,8 @@ public class TeamTest {
 
     @Test
     public void getSetTeamName() {
-        testTeam.setTeamName("Latvia");
-        String expected = "Latvia";
+        testTeam.setTeamName("Duke");
+        String expected = "Duke";
         String actual = testTeam.getTeamName();
         Assert.assertEquals(expected, actual);
     }
