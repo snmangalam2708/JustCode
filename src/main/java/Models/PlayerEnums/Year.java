@@ -1,3 +1,5 @@
+package Models.PlayerEnums;
+
 public enum Year {
     FM("Freshman"),
     S("Sophomore"),

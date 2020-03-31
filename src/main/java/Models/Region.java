@@ -1,3 +1,5 @@
+package Models;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,6 +18,8 @@ public class Region{
         this.champ = new Team();
     }
 
+    public Region(){}
+
     public Bracket getRegionBracket(){
         return this.regionBracket;
     }
@@ -24,7 +28,7 @@ public class Region{
         this.regionBracket = regionBracket;
     }
 
-    public HashMap<Integer,Team> getSeedTeamMap() {
+    public HashMap<Integer, Team> getSeedTeamMap() {
         return seedTeamMap;
     }
 
