@@ -1,4 +1,6 @@
 
+import Models.Region;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -12,7 +14,7 @@ public class Console {
         System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
         System.out.println("^   Hello  Welcome to MARCH MADNESS          ^");
         System.out.println("^--------------------------------------------^");
-        System.out.println("^   Please select the Region by number       ^");
+        System.out.println("^   Please select the Models.Region by number       ^");
         System.out.println("^                                            ^");
         System.out.println("^   1. EAST                                  ^");
         System.out.println("^   2. WEST                                  ^");

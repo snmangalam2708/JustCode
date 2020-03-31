@@ -1,14 +1,15 @@
+import Models.Region;
+import Models.Team;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class BracketSelection {
-    private Region east = new Region("east");
-    private Region west = new Region("west");
-    private Region midwest = new Region("midwest");
-    private Region south = new Region("south");
-    private Team team1 = null;
-    private Team team2 = null;
+    private Region east;
+    private Region west;
+    private Region midwest;
+    private Region south;
+    private Team team1;
+    private Team team2;
 
     public BracketSelection() {
         this.east = new Region("east");
@@ -31,7 +32,7 @@ public class BracketSelection {
         (" Enter your input :");
     }
 
-    public ArrayList<Integer> pickFirstRoundWinner(Region region) {
+    public void pickFirstRoundWinner(Region region) {
         region.clearPicks();
         ArrayList<Integer> winnerList = new ArrayList<>();
         Team winner = new Team();
@@ -51,8 +52,8 @@ public class BracketSelection {
             seedCounter--;
         }
         region.setPicks(winnerList);
-        return winnerList;
     }
+
     public void pickSecondRoundWinner(Region region){
         ArrayList<Integer> winnerList = new ArrayList<>();
         Team winner = new Team();
@@ -108,10 +109,10 @@ public class BracketSelection {
     }
 
     public void pickRegionWinner(Region region){
-        pickFirstRoundWinner(east);
-        pickSecondRoundWinner(west);
-        pickThirdRoundWinner(south);
-        pickFourthRoundWinner(midwest);}
+        pickFirstRoundWinner(region);
+        pickSecondRoundWinner(region);
+        pickThirdRoundWinner(region);
+        pickFourthRoundWinner(region);}
 
     public static void main(String[] args) {
         // selectedRegion will be either pulled from user input or we can hardcode it

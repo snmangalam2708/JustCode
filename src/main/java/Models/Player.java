@@ -1,17 +1,21 @@
-import java.util.Map;
+package Models;
+
+import Models.PlayerEnums.Position;
+import Models.PlayerEnums.Year;
 
 public class Player {
-    
-private String name;
-private Double height;
-private Double weight;
+    private int teamId;
+    private String name;
+    private Double height;
+    private Double weight;
 
-private Double PPG;
-private Double APG;
-private Double RPG;
+    private Double PPG;
+    private Double APG;
+    private Double RPG;
+    private int games;
 
-private Year year;
-private Position position;
+    private Year year;
+    private Position position;
 
     public Player(String name, Position position, Double height, Double weight, Double PPG, Double APG, Double RPG, Year year) {
         this.name = name;
@@ -22,11 +26,14 @@ private Position position;
         this.APG = APG;
         this.RPG = RPG;
         this.year = year;
-        
+
     }
 
     public Player(String name) {
         this.name = name;
+    }
+
+    public Player() {
     }
 
     public String getName() {
@@ -93,19 +100,35 @@ private Position position;
         this.position = position;
     }
 
-    public String playerDetails(Player player){
+    public String playerDetails(Player player) {
         return player.toString();
     }
 
     @Override
     public String toString() {
-             return "Name: " + getName() +
-                    "\n Position: " + getPosition() +
-                    "\n Height: " + getHeight() +
-                    "\n Weight: " + getWeight() +
-                    "\n PPG: " + getPPG() +
-                    "\n APG: " + getAPG() +
-                    "\n RPG " + getRPG() +
-                    "\n Class: " + getYear();
+        return "Name: " + getName() +
+                "\n Models.PlayerEnums.Position: " + getPosition() +
+                "\n Height: " + getHeight() +
+                "\n Weight: " + getWeight() +
+                "\n PPG: " + getPPG() +
+                "\n APG: " + getAPG() +
+                "\n RPG " + getRPG() +
+                "\n Class: " + getYear();
+    }
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    public int getGames() {
+        return games;
+    }
+
+    public void setGames(int games) {
+        this.games = games;
     }
 }
