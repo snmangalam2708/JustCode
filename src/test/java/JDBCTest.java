@@ -1,7 +1,4 @@
-import com.sun.xml.internal.bind.v2.runtime.output.FastInfosetStreamWriterOutput;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class JDBCTest {
     JDBC jdbc = new JDBC();

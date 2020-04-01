@@ -1,3 +1,5 @@
+package Models;
+
 public class Team {
     private String teamName;
     private Roster teamRoster;

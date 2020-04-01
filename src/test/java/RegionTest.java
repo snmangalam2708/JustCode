@@ -1,9 +1,10 @@
+import Models.Bracket;
+import Models.Region;
+import Models.Team;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
-
-import static org.junit.Assert.*;
 
 public class RegionTest {
     Region testRegion = new Region("East");

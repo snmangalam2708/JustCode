@@ -1,15 +1,29 @@
-import com.oracle.webservices.internal.api.message.BasePropertySet;
+package Models;
+
+import Models.PlayerEnums.Position;
+import Services.PlayerService;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class Roster {
-
+    private int teamId;
     LinkedHashMap<Player, Position> roster = new LinkedHashMap<>();
 
-    public Roster() {
+    public Roster(int teamId) {
+        this.teamId = teamId;
+        populateRoster(teamId);
+    }
 
+    public Roster(){};
+
+    public void populateRoster(int teamId){
+        PlayerService ps = new PlayerService();
+        List<Player> players = ps.getPlayersByTeamId(teamId);
+        for(Player player : players){
+            roster.put(player, player.getPosition());
+        }
     }
 
     public LinkedHashMap<Player, Position> getRoster() {
@@ -39,5 +53,13 @@ public class Roster {
             result.append("\n").append(entry.getValue().toString()).append(" ").append(entry.getKey().getName());}
 
         return result.toString();
+    }
+
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 }
