@@ -10,7 +10,7 @@ public class GUI extends JFrame{
      **/
 
     public GUI(){
-        super("2020 March Madness Bracket");
+        super("2020 March Madness Models.Bracket");
         this.setSize(this.getToolkit().getScreenSize());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);

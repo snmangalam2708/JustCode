@@ -1,3 +1,7 @@
+package Models;
+
+import Services.TeamService;
+
 public class Team {
     private String teamName;
     private Roster teamRoster;
@@ -5,11 +9,12 @@ public class Team {
     private String projections;
     private String history;
     private String schedule;
+    private int teamId;
+    private String regionName;
 
 
     public Team(String teamName, String records,String projections,String history,String schedule, Roster roster){
         this.teamName = teamName;
-        this.teamRoster = new Roster();
         this.records = records;
         this.projections = projections;
         this.history = history;
@@ -17,7 +22,22 @@ public class Team {
 
     }
 
+    public void addRoster(){
+        this.teamRoster = new Roster(this.teamId);
+    }
+
+    public Team(int teamId,String regionName){
+        this.teamId = teamId;
+        this.regionName = regionName;
+        addRoster();
+        populateName();
+    }
+
     public Team(){}
+
+    public void populateName(){
+        this.teamName = new TeamService().getTeamNameByTeamIdRegionName(teamId,regionName);
+    }
 
     public Roster getTeamRoster() {
         return teamRoster;
@@ -68,7 +88,23 @@ public class Team {
         this.teamName = teamName;
     }
 
-//    get roster from API
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
+
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
+
+    //    get roster from API
 //    records;
 //    projections;
 //    history;

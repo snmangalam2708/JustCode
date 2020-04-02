@@ -1,8 +1,8 @@
+package Models.PlayerEnums;
+
 public enum Position {
-    PG("Point Guard"),
-    SG("Shooting Guard"),
-    SF("Small Forward"),
-    PF("Power Forward"),
+    G("Guard"),
+    F("Forward"),
     C("Center");
 
     private String position;

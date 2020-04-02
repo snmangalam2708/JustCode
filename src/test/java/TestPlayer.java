@@ -1,3 +1,6 @@
+import Models.Player;
+import Models.PlayerEnums.Position;
+import Models.PlayerEnums.Year;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,10 +10,10 @@ public class TestPlayer {
     private static final Logger LOGGER = Logger.getLogger(TestPlayer.class.getName());
     @Test
     public void playerDetailsTest(){
-        Player player = new Player("Raheel Uppal",Position.PG,6.3,230.5,32.6,8.6,9.2,Year.FM);
+        Player player = new Player("Raheel Uppal",Position.G,6.3,230.5,32.6,8.6,9.2, Year.FM);
         String expected = player.playerDetails(player);
         String actual ="Name: Raheel Uppal\n" +
-                " Position: PG\n" +
+                " Models.PlayerEnums.Position: PG\n" +
                 " Height: 6.3\n" +
                 " Weight: 230.5\n" +
                 " PPG: 32.6\n" +
@@ -27,7 +30,7 @@ public class TestPlayer {
         player.setName("Raheel Uppal");
         player.setAPG(8.9);
         player.setHeight(6.3);
-        player.setPosition(Position.PG);
+        player.setPosition(Position.G);
         player.setWeight(230.5);
         player.setPPG(33.6);
         player.setRPG(12.2);
@@ -58,7 +61,7 @@ public class TestPlayer {
         Assert.assertEquals(weightE,weightA);
 
         Position expected = player.getPosition();
-        Position actual = Position.PG;
+        Position actual = Position.G;
         Assert.assertEquals(expected,actual);
     }
 }

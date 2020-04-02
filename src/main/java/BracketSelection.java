@@ -1,14 +1,15 @@
+import Models.Region;
+import Models.Team;
+
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class BracketSelection {
-    private Region east = new Region("east");
-    private Region west = new Region("west");
-    private Region midwest = new Region("midwest");
-    private Region south = new Region("south");
-    private Team team1 = null;
-    private Team team2 = null;
+    private Region east;
+    private Region west;
+    private Region midwest;
+    private Region south;
+    private Team team1;
+    private Team team2;
 
     public BracketSelection() {
         this.east = new Region("east");
@@ -24,14 +25,14 @@ public class BracketSelection {
         ("         Who Will Win This Matchup?           ")+ "\n" +
         (" -------------------------------------------- ")+ "\n" +
         ("                                              ")+ "\n" +
-        ("    1. " + team1 + "                          ")+ "\n" +
-        ("    2. " + team2 + "                          ")+ "\n" +
+        ("    1. " + team1.getTeamName() + "            ")+ "\n" +
+        ("    2. " + team2.getTeamName() + "            ")+ "\n" +
         ("                                              ")+ "\n" +
         ("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")+ "\n" +
         (" Enter your input :");
     }
 
-    public ArrayList<Integer> pickFirstRoundWinner(Region region) {
+    public void pickFirstRoundWinner(Region region) {
         region.clearPicks();
         ArrayList<Integer> winnerList = new ArrayList<>();
         Team winner = new Team();
@@ -51,12 +52,12 @@ public class BracketSelection {
             seedCounter--;
         }
         region.setPicks(winnerList);
-        return winnerList;
     }
+
     public void pickSecondRoundWinner(Region region){
         ArrayList<Integer> winnerList = new ArrayList<>();
         Team winner = new Team();
-        int seedCounter = 8;
+        int seedCounter = 7;
         for (int i = 1; i<=4;i++){
             this.team1 = region.getSeedTeamMap().get(region.getPicks().get(i));
             this.team2 = region.getSeedTeamMap().get(region.getPicks().get(seedCounter));
@@ -76,7 +77,7 @@ public class BracketSelection {
     public void pickThirdRoundWinner(Region region){
     ArrayList<Integer> winnerList = new ArrayList<>();
     Team winner = new Team();
-    int seedCounter = 4;
+    int seedCounter = 3;
         for (int i = 1; i<=2;i++){
         this.team1 = region.getSeedTeamMap().get(region.getPicks().get(i));
         this.team2 = region.getSeedTeamMap().get(region.getPicks().get(seedCounter));
@@ -95,8 +96,8 @@ public class BracketSelection {
 
     public void pickFourthRoundWinner(Region region){
         Team winner = new Team();
-        this.team1 = region.getSeedTeamMap().get(region.getPicks().get(1));
-        this.team2 = region.getSeedTeamMap().get(region.getPicks().get(2));
+        this.team1 = region.getSeedTeamMap().get(region.getPicks().get(0));
+        this.team2 = region.getSeedTeamMap().get(region.getPicks().get(1));
         Integer userInput = testConsole.getInteger(pickBracketsMessage());
         if (userInput == 1) {
             winner = team1;
@@ -108,15 +109,19 @@ public class BracketSelection {
     }
 
     public void pickRegionWinner(Region region){
-        pickFirstRoundWinner(east);
-        pickSecondRoundWinner(west);
-        pickThirdRoundWinner(south);
-        pickFourthRoundWinner(midwest);}
+        pickFirstRoundWinner(region);
+        pickSecondRoundWinner(region);
+        pickThirdRoundWinner(region);
+        pickFourthRoundWinner(region);}
 
     public static void main(String[] args) {
         // selectedRegion will be either pulled from user input or we can hardcode it
 
         BracketSelection bs = new BracketSelection();
+        bs.east.populateSeedTeamMap();
+        bs.midwest.populateSeedTeamMap();
+        bs.south.populateSeedTeamMap();
+        bs.west.populateSeedTeamMap();
         bs.pickRegionWinner(bs.east);
         bs.pickRegionWinner(bs.west);
         bs.pickRegionWinner(bs.midwest);

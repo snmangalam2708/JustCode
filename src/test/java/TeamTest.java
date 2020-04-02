@@ -1,7 +1,7 @@
+import Models.Roster;
+import Models.Team;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class TeamTest {
     Roster testRoster = new Roster();
