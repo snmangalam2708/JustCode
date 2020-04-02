@@ -1,5 +1,7 @@
 package Models;
 
+import Services.RegionService;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,16 +11,19 @@ public class Region{
     private HashMap<Integer, Team> seedTeamMap;
     private ArrayList<Integer> seedPicks;
     private Team champ;
+    private String regionName;
 
-    public Region(String selectedRegion){
-        JDBC jdbc = new JDBC();
-        //method below will take jdbc query results - need to mapify the query results using selectedRegion
-        this.seedTeamMap.put(1,new Team());
+    public Region(String regionName){
+        this.regionName = regionName;
         this.seedPicks = new ArrayList<Integer>();
         this.champ = new Team();
     }
 
     public Region(){}
+
+    public void populateSeedTeamMap(){
+        this.seedTeamMap = new RegionService().getSeedsTeamsByRegion(this.regionName);
+    }
 
     public Bracket getRegionBracket(){
         return this.regionBracket;

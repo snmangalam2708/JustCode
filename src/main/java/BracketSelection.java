@@ -25,8 +25,8 @@ public class BracketSelection {
         ("         Who Will Win This Matchup?           ")+ "\n" +
         (" -------------------------------------------- ")+ "\n" +
         ("                                              ")+ "\n" +
-        ("    1. " + team1 + "                          ")+ "\n" +
-        ("    2. " + team2 + "                          ")+ "\n" +
+        ("    1. " + team1.getTeamName() + "            ")+ "\n" +
+        ("    2. " + team2.getTeamName() + "            ")+ "\n" +
         ("                                              ")+ "\n" +
         ("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")+ "\n" +
         (" Enter your input :");
@@ -57,7 +57,7 @@ public class BracketSelection {
     public void pickSecondRoundWinner(Region region){
         ArrayList<Integer> winnerList = new ArrayList<>();
         Team winner = new Team();
-        int seedCounter = 8;
+        int seedCounter = 7;
         for (int i = 1; i<=4;i++){
             this.team1 = region.getSeedTeamMap().get(region.getPicks().get(i));
             this.team2 = region.getSeedTeamMap().get(region.getPicks().get(seedCounter));
@@ -77,7 +77,7 @@ public class BracketSelection {
     public void pickThirdRoundWinner(Region region){
     ArrayList<Integer> winnerList = new ArrayList<>();
     Team winner = new Team();
-    int seedCounter = 4;
+    int seedCounter = 3;
         for (int i = 1; i<=2;i++){
         this.team1 = region.getSeedTeamMap().get(region.getPicks().get(i));
         this.team2 = region.getSeedTeamMap().get(region.getPicks().get(seedCounter));
@@ -96,8 +96,8 @@ public class BracketSelection {
 
     public void pickFourthRoundWinner(Region region){
         Team winner = new Team();
-        this.team1 = region.getSeedTeamMap().get(region.getPicks().get(1));
-        this.team2 = region.getSeedTeamMap().get(region.getPicks().get(2));
+        this.team1 = region.getSeedTeamMap().get(region.getPicks().get(0));
+        this.team2 = region.getSeedTeamMap().get(region.getPicks().get(1));
         Integer userInput = testConsole.getInteger(pickBracketsMessage());
         if (userInput == 1) {
             winner = team1;
@@ -118,6 +118,10 @@ public class BracketSelection {
         // selectedRegion will be either pulled from user input or we can hardcode it
 
         BracketSelection bs = new BracketSelection();
+        bs.east.populateSeedTeamMap();
+        bs.midwest.populateSeedTeamMap();
+        bs.south.populateSeedTeamMap();
+        bs.west.populateSeedTeamMap();
         bs.pickRegionWinner(bs.east);
         bs.pickRegionWinner(bs.west);
         bs.pickRegionWinner(bs.midwest);

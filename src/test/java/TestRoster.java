@@ -12,11 +12,11 @@ public class TestRoster {
     @Test
     public void sizeTest(){
         Player player1 = new Player("Raheel Uppal");
-        Position pg = Position.PG;
+        Position pg = Position.G;
         Player player2 = new Player("David Kelly");
-        Position sg = Position.SG;
+        Position sg = Position.G;
         Player player3 = new Player("Sandeep Manglam");
-        Position c = Position.SF;
+        Position c = Position.F;
         Roster roster = new Roster();
         roster.setRoster(roster.getRoster());
         roster.addToRoster(player1,pg);
@@ -33,11 +33,11 @@ public class TestRoster {
     @Test
     public void listRosterTest(){
         Player player1 = new Player("Raheel Uppal");
-        Position pg = Position.PG;
+        Position pg = Position.G;
         Player player2 = new Player("David Kelly");
-        Position sg = Position.SG;
+        Position sg = Position.G;
         Player player3 = new Player("Sandeep Manglam");
-        Position sf = Position.SF;
+        Position sf = Position.F;
         Player player4 = new Player("Mat Ascone");
         Position c = Position.C;
 
